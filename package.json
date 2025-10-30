@@ -1,0 +1,24 @@
+{
+  "name": "sprint-4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "sass sass/main.scss:public/style.css",  
+    "watch-css": "sass --watch sass/main.scss:public/style.css"  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JordiMiravet/Bootcamp-S4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JordiMiravet/Bootcamp-S4/issues"
+  },
+  "homepage": "https://github.com/JordiMiravet/Bootcamp-S4#readme",
+  "devDependencies": {
+    "sass": "^1.93.2"
+  }
+}
