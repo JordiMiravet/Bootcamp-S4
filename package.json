@@ -7,8 +7,6 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "serve": "npx serve public",
-    "css": "sass sass/main.scss public/style.css",
-    "css:watch": "sass --watch sass/main.scss:public/style.css",
     "start": "npm run serve"
   },
   "repository": {

@@ -1,15 +1,103 @@
-html {
+:root{
+  /* Typography */
+  --typo-family: Arial, Helvetica, sans-serif;
+
+  /* Colors */
+  --color-white: #f2f3f4;
+  --color-Espresso-brown: #4a2e1e;
+  --color-late-foam: #e2c7a0;
+  --color-ceramic-blue: #4f8c9f;
+  --color-dark: #333333;
+  --color-light-grey: #f5f5f5;
+  --color-border: #dcdcdc;
+
+  /* Breakpoints */
+  --breakpoint-tablet: 768px;
+  --breakpoint-mobile: 480px;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+
+  /* Border Radius */
+
+  --border-radius-lg: 2rem;
+
+  /* Transitions */
+  --transition-duration: 0.3s;
+  --transition-ease: ease-in-out;
+}
+
+
+html{
   box-sizing: border-box;
   font-size: 62.5%;
 }
-
-*, *:before, *:after {
+*,*:before,*:after{
   box-sizing: inherit;
 }
 
-body {
+body{
   margin: 0 auto;
   padding: 0;
+  font-family: var(--typo-family);
+  background-color: var(--color-white);
+  background-image: url('./images/background-image_001.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 80vh;
 }
 
-/*# sourceMappingURL=style.css.map */
+h2 {
+  font-size: 2.25rem;
+}
+
+.card {
+  background-color: var(--color-white);
+  padding: 0 5rem;
+  margin: 10rem auto ;
+  border: none;
+  height: 75%;
+  width: 80%;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 2.5rem 0.01rem var(--color-Espresso-brown);
+
+} 
+.card h2 {
+  height: 30%;
+  margin-bottom: 2rem;
+  color: var(--color-ceramic-blue);
+}
+.card__result {
+  color: var(--color-Espresso-brown);
+  height: 40%;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.25rem;
+  letter-spacing: .05rem;
+  text-align: center;
+}
+.card__btn {
+  padding: 1.25rem 3rem;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-Espresso-brown);
+  color: var(--color-white);
+  font-weight: 600;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+} 
+.card__btn:hover {
+  background-color: var(--color-ceramic-blue);
+  box-shadow: 0 0 0.5rem var(--color-Espresso-brown);
+}
+
+
