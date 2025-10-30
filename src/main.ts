@@ -8,11 +8,8 @@ import { print } from "./helpers.js"
 // - En iniciar es mostrarà el primer acudit per pantalla i el botó de següent acudit.
 // - En prémer el botó de “Següent acudit” es farà fetch a l'API d'acudits i es mostrarà per consola i per pantalla l'acudit.
 
-const getInputs = (): HTMLElement | null => {
-    const jokeResult = document.getElementById("jokeResult");
+const getInputs = (): HTMLElement | null => document.getElementById("jokeResult");
 
-    return jokeResult;
-}
 const showJoke = async (): Promise<void> => {
     const joke = await getJokes();
     const result = getInputs();
@@ -25,6 +22,6 @@ const showJoke = async (): Promise<void> => {
     } 
 }
 
-document.getElementById("btn-joke")?.addEventListener("click", showJoke);
+document.getElementById("btn")?.addEventListener("click", showJoke);
 
 

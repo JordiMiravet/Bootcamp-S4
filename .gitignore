@@ -1,0 +1,9 @@
+# Node.js
+node_modules/
+
+# Compiled files
+dist/
+
+# CSS generado automáticamente
+public/style.css
+public/style.css.map

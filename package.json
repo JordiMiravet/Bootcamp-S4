@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-css": "sass sass/main.scss:public/style.css",  
-    "watch-css": "sass --watch sass/main.scss:public/style.css"  
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "serve": "npx serve public",
+    "css": "sass sass/main.scss public/style.css",
+    "css:watch": "sass --watch sass/main.scss:public/style.css",
+    "start": "npm run serve"
   },
   "repository": {
     "type": "git",
@@ -19,6 +23,8 @@
   },
   "homepage": "https://github.com/JordiMiravet/Bootcamp-S4#readme",
   "devDependencies": {
-    "sass": "^1.93.2"
+    "sass": "^1.93.2",
+    "serve": "^14.2.5",
+    "typescript": "^5.9.3"
   }
 }
