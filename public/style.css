@@ -4,33 +4,18 @@
 
   /* Colors */
   --color-white: #f2f3f4;
+  --color-grey-dark: #333333;
+
   --color-Espresso-brown: #4a2e1e;
   --color-late-foam: #e2c7a0;
   --color-ceramic-blue: #4f8c9f;
-  --color-dark: #333333;
-  --color-light-grey: #f5f5f5;
-  --color-border: #dcdcdc;
-
+  
   /* Breakpoints */
   --breakpoint-tablet: 768px;
-  --breakpoint-mobile: 480px;
-
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 3rem;
-  --spacing-xl: 4rem;
 
   /* Border Radius */
-
   --border-radius-lg: 2rem;
-
-  /* Transitions */
-  --transition-duration: 0.3s;
-  --transition-ease: ease-in-out;
 }
-
 
 html{
   box-sizing: border-box;
@@ -58,34 +43,66 @@ h2 {
 }
 
 .card {
-  background-color: var(--color-white);
-  padding: 0 5rem;
+  background-color: var(--color-grey-dark);
+  padding: 5rem 5rem;
   margin: 10rem auto ;
   border: none;
   height: 75%;
   width: 80%;
   border-radius: var(--border-radius-lg);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   box-shadow: 0 0 2.5rem 0.01rem var(--color-Espresso-brown);
-
+  gap: 2rem;
 } 
-.card h2 {
-  height: 30%;
-  margin-bottom: 2rem;
-  color: var(--color-ceramic-blue);
+.card__text {
+  color: var(--color-white);
 }
+
 .card__result {
-  color: var(--color-Espresso-brown);
-  height: 40%;
+  color: var(--color-white);
   font-size: 2rem;
   font-weight: 500;
   line-height: 2.25rem;
   letter-spacing: .05rem;
   text-align: center;
+  height: 10rem;
+  min-height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* Puntuacion*/
+.card__score {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+}
+
+.card__score .star svg path {
+  fill: var(--color-white);
+  transition: fill 0.2s ease;
+  cursor: pointer;
+}
+
+
+.card__score .star:hover svg path,
+.card__score .star:hover ~ .star svg path {
+  fill: var(--color-ceramic-blue);
+}
+
+
+.card__score input:checked + label svg path,
+.card__score input:checked + label ~ label svg path {
+  fill: var(--color-ceramic-blue);
+}
+
+
+/* Bottones */
+
 .card__btn {
   padding: 1.25rem 3rem;
   border: none;
