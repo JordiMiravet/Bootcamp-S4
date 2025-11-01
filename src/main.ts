@@ -3,43 +3,78 @@
 // Archivos
 
 import { getJokes } from "./api/jokes.js"
-import { print } from "./helpers.js"
+import { print, getJokeContainer, getDate, getStars } from "./helpers.js"
 import { reportJokes, ReportJoke } from "./DDBB.js"
 
 // --------------------------------------------------
-// Logica
 
-const getInput = (): HTMLElement | null => document.getElementById("resultDiv");
-const getDate = (): string => new Date().toISOString();
+// Resetear y deseleccionar estrellas
 
+const createStarRating = () => {
+    let ratingChecked: HTMLInputElement | null = null;
 
-// Comentario: No va el deseleccionar las estrellas, entiendo que debe ser algo del input radio
-// Para mañana: intentaré generar algún tipo de lógica para que escuche los iconos seleccionados
-// Para mañana : + actualizar el "score" del chiste según la votación.
+    // Deseleccionar checkbox
+    const listenToStars = (): void => {
+        document.querySelectorAll<HTMLInputElement>('input[name="rating"]').forEach(star => 
+            star.addEventListener("click", () => {
+                ratingChecked === star
+                    ? ((star.checked = false), (ratingChecked = null))
+                    : ratingChecked = star
+            }
+        ));
+    };
+
+    // Reset checkbox
+    const resetStar = () : HTMLInputElement | void => {
+        document.querySelectorAll<HTMLInputElement>('input[name="rating"]').forEach( star => {
+            star.checked = false;
+        });
+        ratingChecked = null;
+    };
+
+    const getRating = (): number => ratingChecked ? parseInt(ratingChecked.value) : 0;
+
+    return { listenToStars, resetStar, getRating }
+}
+const starRating = createStarRating();
+
+// Mostrar chiste
 
 const showJoke = async (): Promise<void> => {
+    const result = getJokeContainer();
+    if (!result) return console.error("No se encontró el elemento 'result'");
+
     const joke = await getJokes();
-    const result = getInput();
+    print(result, joke.joke);
+};
 
-    if(result){
-        reportJokes.push({
-            joke: joke.joke,
-            score: 0, // me falta la logica para escuchar los iconos seleccionados
-            date: getDate()
-        })
+const handleNextJoke = (): void => {
+    const star = starRating.getRating();
+    const result = getJokeContainer();
+    if (!result) return console.error("No se encontró el elemento 'result'");
 
-        console.log(joke.joke);
-        print(result, joke.joke);
+    const currentJoke = result.textContent || "";
 
-        
-    } else {
-        console.error("No se encontró el elemento 'result'")
-    }  
-}
+    reportJokes.push({
+        joke: currentJoke,
+        score: star,
+        date: getDate()
+    });
+
+    console.log(reportJokes[reportJokes.length - 1]);
+
+    starRating.resetStar();
+    showJoke();
+};
 
 // --------------------------------------------------
-// Evento
+// Eventos
 
-document.getElementById("btn")?.addEventListener("click", showJoke);
+document.addEventListener("DOMContentLoaded", () => {
+    starRating.listenToStars();
+    document.getElementById("btn")?.addEventListener("click", handleNextJoke);
+    showJoke();
+});
+
 
 

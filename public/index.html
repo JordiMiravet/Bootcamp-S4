@@ -10,35 +10,30 @@
 <body>
 
     <div class="card"> 
-        <h2 class="card__text">Ready to laugh?</h2>
-        <div id="resultDiv" class="card__result"></div>
+        <h2 class="card__text">Ready to laugh?</h2> <!-- card__text -->
+        <div id="resultDiv" class="card__result"></div> <!-- card__result -->
         <div class="card__score">
-            
-            <input type="radio" name="rating" id="star1" value="1" hidden>
+            <input type="radio" name="rating" id="star1" value="3" hidden>
             <label for="star1" class="star">
                 <svg viewBox="0 0 24 24" width="24" height="24">
-                <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
+                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
                 </svg>
-            </label>
-
+            </label> <!-- star -->
             <input type="radio" name="rating" id="star2" value="2" hidden>
             <label for="star2" class="star">
                 <svg viewBox="0 0 24 24" width="24" height="24">
-                <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
+                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
                 </svg>
-            </label>
-
-            <input type="radio" name="rating" id="star3" value="3" hidden>
+            </label> <!-- star -->
+            <input type="radio" name="rating" id="star3" value="1" hidden>
             <label for="star3" class="star">
                 <svg viewBox="0 0 24 24" width="24" height="24">
-                <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
+                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
                 </svg>
-            </label>
-            
-
-        </div>
-        <button type="button" id="btn" class="card__btn">Next Joke</button>
-    </div> 
+            </label> <!-- star -->
+        </div> <!-- card__score -->
+        <button type="button" id="btn" class="card__btn">Next Joke</button> <!-- boton -->
+    </div> <!-- card -->
     
     <script type="module" src="./dist/main.js"></script>
 </body>
