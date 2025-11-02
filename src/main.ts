@@ -5,8 +5,13 @@
 import { getJokes } from "./api/jokes.js"
 import { print, getJokeContainer, getDate, getStars } from "./helpers.js"
 import { reportJokes, ReportJoke } from "./DDBB.js"
+import { getWeather } from "./api/weather.js"
 
 // --------------------------------------------------
+// Weather  
+getWeather()
+// --------------------------------------------------
+// Joke 
 
 // Resetear y deseleccionar estrellas
 
