@@ -8,8 +8,13 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <section class="weather">
+        <img class="weather__icon" id="weatherIcon"></img> 
+        <span>|</span>
+        <div class="weather__temp" id="weatherTemp"></div> 
+    </section>
 
-    <div class="card"> 
+    <section class="card"> 
         <h2 class="card__text">Ready to laugh?</h2> <!-- card__text -->
         <div id="resultDiv" class="card__result"></div> <!-- card__result -->
         <div class="card__score">
@@ -32,8 +37,11 @@
                 </svg>
             </label> <!-- star -->
         </div> <!-- card__score -->
-        <button type="button" id="btn" class="card__btn">Next Joke</button> <!-- boton -->
-    </div> <!-- card -->
+        <div>
+            <button type="button" id="btn" class="card__btn">Next Joke</button> <!-- boton -->
+        </div>
+        
+    </section> <!-- card -->
     
     <script type="module" src="./dist/main.js"></script>
 </body>

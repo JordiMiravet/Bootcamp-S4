@@ -3,18 +3,27 @@
 // Archivos
 
 import { getJokes } from "./api/jokes.js"
-import { print, getJokeContainer, getDate, getStars } from "./helpers.js"
+import { print, getJokeContainer, getDate, getStars, getWeatherContainers, getWeatherIcons } from "./helpers.js"
 import { reportJokes, ReportJoke } from "./DDBB.js"
 import { getWeather } from "./api/weather.js"
 
 // --------------------------------------------------
-// Weather  
-getWeather()
+// Weather Logic
+
+const showWeather = async () : Promise<void> => {
+    const { icon, temp } = getWeatherContainers();
+    const weather = await getWeather();
+    
+    if(!icon || !temp) return;
+    console.log( weather.is_day);
+    (icon as HTMLImageElement).src = getWeatherIcons(weather.weathercode, weather.is_day);
+    temp.textContent = `${weather.temperature}º C`;
+}
+
 // --------------------------------------------------
-// Joke 
+// Joke Logic
 
 // Resetear y deseleccionar estrellas
-
 const createStarRating = () => {
     let ratingChecked: HTMLInputElement | null = null;
 
@@ -44,7 +53,6 @@ const createStarRating = () => {
 const starRating = createStarRating();
 
 // Mostrar chiste
-
 const showJoke = async (): Promise<void> => {
     const result = getJokeContainer();
     if (!result) return console.error("No se encontró el elemento 'result'");
@@ -76,6 +84,7 @@ const handleNextJoke = (): void => {
 // Eventos
 
 document.addEventListener("DOMContentLoaded", () => {
+    showWeather();
     starRating.listenToStars();
     document.getElementById("btn")?.addEventListener("click", handleNextJoke);
     showJoke();

@@ -1,24 +1,23 @@
-/* Variables */
+
+/** Variables **/
 
 :root{
   /* Typography */
   --typo-family: Arial, Helvetica, sans-serif;
 
   /* Colors */
-  --color-white: #f2f3f4;
-  --color-grey-dark: #333333;
+  --color-white: rgb(242, 243, 244);
+  --color-grey-dark: rgba(51, 51, 51, 0.975);
 
-  --color-Espresso-brown: #4a2e1e;
-  --color-late-foam: #e2c7a0;
-  --color-ceramic-blue: #4f8c9f;
+  --color-Espresso-brown: rgb(74, 46, 30);
+  --color-late-foam: rgb(226, 199, 160);
+  --color-ceramic-blue: rgb(79, 140, 159);
   
   /* Breakpoint */
   --breakpoint-tablet: 768px;
-
-
 }
 
-/* Generales */
+/** Generales **/
 
 html{
   box-sizing: border-box;
@@ -36,19 +35,41 @@ body{
   background: url('./images/background-image_001.jpg') center/cover no-repeat fixed;
   height: 100vh;
   overflow: hidden;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 h2 {
   font-size: 2.25rem;
 }
 
-/* HTML */
+/** DOM **/
 
+/* Weather */
+.weather {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: baseline;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0;
+  height: 10vh;
+}
+.weather span {
+  font-size: 3.5rem;
+  color: var(--color-white);
+}
+.weather__icon {
+  width: 6rem;
+}
+.weather__temp {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+/* Card */
 .card {
+  margin: 0 auto;
   padding: 5rem 5rem;
 
   height: 80%;
@@ -56,21 +77,26 @@ h2 {
   border: none;
   border-radius: 2rem;
 
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5fr 1fr 1fr;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
   gap: 2rem;
+  text-align: center;
   
   background-color: var(--color-grey-dark);
-  box-shadow: 0 0 2.5rem 0.01rem var(--color-grey-dark);
+  box-shadow: 0 0 2.5rem 0.01rem var(--color-Espresso-brown);
 } 
+
 .card__text {
-  color: var(--color-white);
+  padding: 1rem 0;
+  text-align: left;
+  color: var(--color-late-foam);
 }
 
 .card__result {
-  color: var(--color-white);
+  color: var(--color-late-foam);
   font-size: 2rem;
   font-weight: 500;
   line-height: 2.25rem;
@@ -88,12 +114,13 @@ h2 {
 
 .card__score {
   display: flex;
+  justify-content: center;
   flex-direction: row-reverse;
   gap: 1rem;
 }
 
 .card__score .star svg path {
-  fill: var(--color-white);
+  fill: var(--color-late-foam);
   transition: fill 0.2s ease;
   cursor: pointer;
 }
@@ -111,11 +138,12 @@ h2 {
 /* Button */
 
 .card__btn {
+  
   padding: 1.25rem 3rem;
   border: none;
   border-radius: 2rem;
   background-color: var(--color-Espresso-brown);
-  color: var(--color-white);
+  color: var(--color-late-foam);
   font-weight: 600;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
 } 
