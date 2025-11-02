@@ -85,6 +85,8 @@ const handleNextJoke = (): void => {
 
 document.addEventListener("DOMContentLoaded", () => {
     showWeather();
+    setInterval(() => showWeather(), 900 * 1000);
+
     starRating.listenToStars();
     document.getElementById("btn")?.addEventListener("click", handleNextJoke);
     showJoke();
