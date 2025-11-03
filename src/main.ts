@@ -57,14 +57,26 @@ const starRating = createStarRating();
 // Mostrar chiste
 const showJoke = async (): Promise<void> => {
     const result = getJokeContainer();
-    if (!result) return console.error("No se encontró el elemento 'result'");
+    if (!result) return console.error("The element 'result' was not found");
 
-    const joke = Math.random() > 0.5 
-        ? await getJokesRandom()
-        : await getJokesChuck()
+    try{
+        const joke = Math.random() > 0.5 
+            ? await getJokesRandom()
+            : await getJokesChuck()
 
-    print(result, joke.text);
+        print(result, joke.text);
+    } catch (err){
+        console.error(err)
+        print(result, `Error : ${err}`);
+    }
 };
+
+// Mirar estas infos antes de continuar :
+
+// mdn control de flujo y manejo de errores
+// logggin library js
+// duck typing typescript
+
 
 const handleNextJoke = (): void => {
     const star = starRating.getRating();

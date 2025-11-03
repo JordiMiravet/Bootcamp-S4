@@ -7,7 +7,9 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "serve": "npx serve public",
-    "start": "npm run serve"
+    "start": "npm run serve",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -21,8 +23,19 @@
   },
   "homepage": "https://github.com/JordiMiravet/Bootcamp-S4#readme",
   "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/generator": "^7.28.5",
+    "@babel/parser": "^7.28.5",
+    "@babel/template": "^7.27.2",
+    "@babel/traverse": "^7.28.5",
+    "@babel/types": "^7.28.5",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.10.0",
+    "jest": "^30.2.0",
     "sass": "^1.93.2",
     "serve": "^14.2.5",
-    "typescript": "^5.9.3"
+    "ts-jest": "^29.4.5",
+    "typescript": "^5.9.3",
+    "undici-types": "^7.16.0"
   }
 }
