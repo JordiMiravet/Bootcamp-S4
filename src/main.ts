@@ -2,20 +2,22 @@
 // --------------------------------------------------
 // Archivos
 
-import { getJokes } from "./api/jokes.js"
-import { print, getJokeContainer, getDate, getStars, getWeatherContainers, getWeatherIcons } from "./helpers.js"
-import { reportJokes, ReportJoke } from "./DDBB.js"
-import { getWeather } from "./api/weather.js"
+import { getJokesRandom } from "./api/jokesRandom.js";
+import { print, getJokeContainer, getDate, getStars, getWeatherContainers, getWeatherIcons } from "./helpers.js";
+import { reportJokes, ReportJoke } from "./DDBB.js";
+import { getWeather } from "./api/weather.js";
+import { getJokesChuck } from "./api/jokesChuck.js";
 
 // --------------------------------------------------
 // Weather Logic
 
 const showWeather = async () : Promise<void> => {
     const { icon, temp } = getWeatherContainers();
-    const weather = await getWeather();
-    
     if(!icon || !temp) return;
-    console.log( weather.is_day);
+
+    const weather = await getWeather();
+    if(!weather) return;
+
     (icon as HTMLImageElement).src = getWeatherIcons(weather.weathercode, weather.is_day);
     temp.textContent = `${weather.temperature}º C`;
 }
@@ -57,8 +59,11 @@ const showJoke = async (): Promise<void> => {
     const result = getJokeContainer();
     if (!result) return console.error("No se encontró el elemento 'result'");
 
-    const joke = await getJokes();
-    print(result, joke.joke);
+    const joke = Math.random() > 0.5 
+        ? await getJokesRandom()
+        : await getJokesChuck()
+
+    print(result, joke.text);
 };
 
 const handleNextJoke = (): void => {
