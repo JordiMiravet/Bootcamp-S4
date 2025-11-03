@@ -3,24 +3,10 @@
 // Archivos
 
 import { getJokesRandom } from "./api/jokesRandom.js";
-import { print, getJokeContainer, getDate, getStars, getWeatherContainers, getWeatherIcons } from "./helpers.js";
-import { reportJokes, ReportJoke } from "./DDBB.js";
-import { getWeather } from "./api/weather.js";
 import { getJokesChuck } from "./api/jokesChuck.js";
-
-// --------------------------------------------------
-// Weather Logic
-
-const showWeather = async () : Promise<void> => {
-    const { icon, temp } = getWeatherContainers();
-    if(!icon || !temp) return;
-
-    const weather = await getWeather();
-    if(!weather) return;
-
-    (icon as HTMLImageElement).src = getWeatherIcons(weather.weathercode, weather.is_day);
-    temp.textContent = `${weather.temperature}º C`;
-}
+import { print, getJokeContainer, getDate } from "./helpers.js";
+import { reportJokes } from "./DDBB.js";
+import { showWeather } from "./showWeather.js";
 
 // --------------------------------------------------
 // Joke Logic
@@ -90,8 +76,6 @@ const handleNextJoke = (): void => {
         score: star,
         date: getDate()
     });
-
-    console.log(reportJokes[reportJokes.length - 1]);
 
     starRating.resetStar();
     showJoke();

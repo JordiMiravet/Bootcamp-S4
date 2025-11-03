@@ -18,8 +18,6 @@ export const getWeather = async (): Promise<CurrentWeather>  => {
 
         return data.current_weather as CurrentWeather;
     } catch (err){
-        console.error(err);
-        // ToDo: Ya manejaré este error en main.ts, por ahora dejo esto como recordatorio
         throw err;
     }   
 }

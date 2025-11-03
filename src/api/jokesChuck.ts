@@ -1,7 +1,7 @@
 "use strict"
 
 import { JokeResponse } from "./type.js";
-import { handleFetchError } from "../handleFetchError";
+import { handleFetchError } from "../handleFetchError.js";
 
 export const getJokesChuck = async (): Promise<JokeResponse> => {
     const url : string = "https://api.chucknorris.io/jokes/random";
