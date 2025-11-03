@@ -21,6 +21,7 @@ describe("getJokesChuck", () => {
 
         expect(result).toEqual({ text: mockResponse.value, source: "chuck" });
     });
+    
     it("should throw an error when the network response is not ok", async () => {
         (fetch as jest.Mock).mockResolvedValueOnce({ 
             ok: false,
