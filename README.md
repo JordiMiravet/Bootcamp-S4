@@ -313,6 +313,8 @@ Definición de cada una de las funciones:
 
 Archivo `jokeHandler.ts`:
 
+- Este archivo gestiona toda la lógica de los chistes dentro del proyecto, incluyendo la selección aleatoria de chistes, su visualización en pantalla y el registro de la puntuación que otorga el usuario.
+
 ```typescript
 "use strict"
 
@@ -395,8 +397,6 @@ export const handleNextJoke = (): void => {
 };
 ```
 
-- Este archivo gestiona toda la lógica de los chistes dentro del proyecto, incluyendo la selección aleatoria de chistes, su visualización en pantalla y el registro de la puntuación que otorga el usuario.
-
 Definición de cada una de las funciones:
 
 - `createStarRating()`:
@@ -466,6 +466,9 @@ Definición de la función:
 
 Archivo `main.ts`:
 
+- Este archivo actúa como punto de entrada principal del proyecto, donde se inicializan todos los procesos.
+- Aquí se coordinan tanto la lógica de los chistes como la del clima, enlazando las funciones correspondientes.
+
 ```typescript
 "use strict"
 // --------------------------------------------------
@@ -486,9 +489,6 @@ document.addEventListener("DOMContentLoaded", () => {
     showJoke();
 });
 ```
-
-- Este archivo actúa como punto de entrada principal del proyecto, donde se inicializan todos los procesos.
-- Aquí se coordinan tanto la lógica de los chistes como la del clima, enlazando las funciones correspondientes.
 
 Definición de la lógica general:
 - Al cargarse el documento (DOMContentLoaded):
