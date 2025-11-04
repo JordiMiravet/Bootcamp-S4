@@ -31,7 +31,9 @@ export const createStarRating = () => {
         ratingChecked = null;
     };
 
-    const getRating = (): number => ratingChecked ? parseInt(ratingChecked.value) : 0;
+    const getRating = (): number => ratingChecked 
+        ? parseInt(ratingChecked.value) 
+        : 0;
 
     return { listenToStars, resetStar, getRating }
 }
@@ -48,6 +50,7 @@ export const showJoke = async (): Promise<void> => {
 
         console.clear();
         console.log(reportJokes[reportJokes.length -1]);
+        console.log(reportJokes)
 
         print(result, joke.text);
     } catch (err){
@@ -70,7 +73,7 @@ export const handleNextJoke = (): void => {
         score: star,
         date: getDate()
     });
-
+    
     starRating.resetStar();
     showJoke();
 };

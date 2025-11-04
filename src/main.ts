@@ -2,7 +2,7 @@
 // --------------------------------------------------
 // Archivos
 
-import { showWeather } from "./showWeather.js";
+import { showWeather } from "./weatherHandler.js";
 import { starRating, showJoke, handleNextJoke } from "./jokeHandler.js"
 
 // --------------------------------------------------

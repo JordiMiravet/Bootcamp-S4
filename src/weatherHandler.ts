@@ -3,6 +3,10 @@
 import { getWeather } from "./api/weather.js";
 import { getWeatherContainers, getWeatherIcons } from "./helpers.js";
 
+// --------------------------------------------------
+// Weather Logic
+
+// Mostrar Clima
 export const showWeather = async (): Promise<void> => {
     const { icon, temp } = getWeatherContainers();
     if (!icon || !temp) return;
