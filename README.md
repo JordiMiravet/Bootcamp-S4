@@ -250,6 +250,7 @@ export const reportJokes: ReportJoke[] = [];
 - Este archivo define el type `ReportJoke`, que establece la estructura y tipado de los objetos que representan los chistes evaluados por el usuario.
 - Además, exporta `reportJokes` que es un array vacío tipado con el type `ReportJoke[]`, que sirve para almacenar todos los chistes que se lancen, con su puntuación y la fecha en la que ha sido calificado.
 
+---
 
 Archivo `helpers.ts`:
 
