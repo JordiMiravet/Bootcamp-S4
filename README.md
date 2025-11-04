@@ -15,6 +15,8 @@ La base del proyecto es una landing page que muestra una tarjeta con chistes, pe
 - Profundizar en el uso de `TypeScript`, comprendiendo su `sintaxis`, el `tipado estático`, y el uso adecuado de `interfaces` y otros componentes del lenguaje para mantener un código claro y estructurado.
 - Practicar la implementación de procesos asíncronos en un entorno web, integrando `HTML` y `CSS` para la presentación visual.
 
+---
+
 ## **Instalación**
 
 ### Clonar el repositorio
@@ -47,12 +49,62 @@ Una vez compilado, abre en el navegador el archivo :
 index.html
 ```
 * Para este ultimo paso deberás poseer una extensión como _Live Server_ en el VisualStudio Code.
-  
-  
+
+---
+
+## **Estructura de carpetas**
+
+```text
+Bootcamp-S4/
+│
+├─ node_modules/
+│
+├─ public/
+│  ├─ images/
+│  │  ├─ background-image_001.jpg
+│  │  └─ weather_icons/
+│  │     ├─ day.svg
+│  │     ├─ night.svg
+│  │     ├─ cloudy-day.svg
+│  │     ├─ cloudy-night.svg
+│  │     ├─ cloudy.svg
+│  │     ├─ rainy-day.svg
+│  │     ├─ rainy-night.svg
+│  │     ├─ snowy-day.svg
+│  │     ├─ snowy-night.svg
+│  │     └─ thunder.svg
+│  ├─ index.html
+│  └─ style.css
+│
+├─ src/
+│  ├─ api/
+│  │  ├─ handleFetchError.ts
+│  │  ├─ jokesChuck.ts
+│  │  ├─ jokesRandom.ts
+│  │  ├─ typeJoke.ts
+│  │  └─ weather.ts
+│  ├─ DDBB.ts
+│  ├─ helpers.ts
+│  ├─ jokeHandler.ts
+│  ├─ weatherHandler.ts
+│  └─ main.ts
+│
+├─ test/
+│  ├─ jokesChuck.test.ts
+│  ├─ jokesRandom.test.ts
+│  └─ weather.test.ts
+│
+├─ .gitignore
+├─ jest.config.js
+├─ package-lock.json
+├─ package.json 
+├─ README.md 
+└─ tsconfig.json
+```
+
 ---
 
 ## **Funciones principales**
-
 
 ### Archivos para el consumo de APIs REST
 
@@ -71,6 +123,8 @@ export interface JokeResponse {
 
 - Este archivo define la interface `JokeResponse`, que establece el tipado del objeto devuelto por las funciones que consumen las APIs de chistes. Gracias a esta interfaz, he normalizado la estructura de las respuestas, lo que me ha permitido intercalar y mostrar los chistes de distintas fuentes de forma uniforme en el `HTML`.
 
+---
+
 Archivo `handleFetchError.ts`:
 
 ```typescript
@@ -86,6 +140,8 @@ export const handleFetchError = (res: Response) => {
 
 - Esta función centraliza el manejo de errores en las peticiones `HTTP`.  
 - Verifica el estado de la respuesta y lanza errores descriptivos en caso de fallos del cliente (4xx) o del servidor (5xx). En este caso se implementan mensajes de error genéricos, aunque en futuros proyectos me gustaría ampliar el sistema para gestionar distintos tipos de errores de forma más específica.
+
+---
 
 Archivo `JokesChuck.ts`:
 
@@ -113,6 +169,7 @@ export const getJokesChuck = async (): Promise<JokeResponse> => {
 - Esta función realiza una petición a la `API` de chistes de Chuck Norris y devuelve un objeto (tipado según la interfaz `JokeResponse`).
 - En caso de error en la respuesta `HTTP`, he delegado el manejo a `handleFetchError()`.
 
+---
 
 Archivo `jokesRandom.ts`:
 
@@ -139,6 +196,8 @@ export const getJokesRandom = async (): Promise<JokeResponse> => {
 
 - Esta función consume una `API` de chistes aleatorios y devuelve el resultado en el mismo formato que la función anterior, unificando la estructura de las respuestas mediante la interface `JokeResponse`.
 - En caso de error en la respuesta `HTTP`, esta tambien delega su manejo a `handleFetchError()`
+
+---
 
 Archivo `weather.ts`
 
@@ -172,6 +231,7 @@ export const getWeather = async (): Promise<CurrentWeather>  => {
 - Esta función obtiene los datos meteorológicos actuales desde una `API` de meteorologia, para este caso he usado las coordenadas de Barcelona pero para proximos proyectos me gustaría estudiar como implementarla segun la direccion IP del trabajador/cliente.
 - Devuelve un objeto `CurrentWeather` con la hora, temperatura, momento del día (diurno o nocturno) y codigo del clima actual (el cual luego es transformado en un icono svg dinamico).
 
+---
 
 Archivo `reportJokes.ts`
 
@@ -249,6 +309,7 @@ Definición de cada una de las funciones:
     - `getWeatherContainers()` Devuelve los elementos del DOM donde se mostrará el icono y la temperatura del clima.
     - `getWeatherIcons(code, is_day)` Selecciono el icono apropiado según el código de clima (`code`) y con un ternario me aseguro de mostrar el icono mas adecuado para el momento del dia (`is_day`) en el que se encuentre el usuario.
 
+---
 
 Archivo `jokeHandler.ts`:
 
@@ -340,7 +401,7 @@ Definición de cada una de las funciones:
 
 - `createStarRating()`:
     - Inicializa el sistema de puntuación.
-    - Permite seleccionar y deseleccionar una estrella.
+    - Permite seleccionar y deseleccionar una estrella, en este caso, haberlo trabajado con radio no encontré otra manera más lógica de hacerlo.
     - Devuelve un objeto con tres métodos:
         - `listenToStars()`: añade los listeners a las estrellas para permitir su selección/deselección.
         - `resetStar()`: limpia la selección de estrellas y el valor adjudicado a ella tras valorar un chiste y pasar al siguiente.
@@ -358,8 +419,12 @@ Definición de cada una de las funciones:
 - `starRating`:
     - Es una instancia creada a partir de `createStarRating()` para mantener el estado de la valoración a lo largo de su ciclo de vida.
 
+---
 
 Archivo `weatherHandler.ts`:
+
+- Este archivo contiene la lógica principal de la sección del clima, obtiene la información meteorológica actual y la representa dinámicamente en la interfaz mediante un icono y la temperatura.
+
 ```typescript
 "use strict"
 
@@ -388,8 +453,6 @@ export const showWeather = async (): Promise<void> => {
 };
 ```
 
-- Este archivo contiene la lógica principal de la sección del clima, obtiene la información meteorológica actual y la representa dinámicamente en la interfaz mediante un icono y la temperatura.
-
 Definición de la función:
 
 - `showWeather()`:
@@ -398,6 +461,8 @@ Definición de la función:
     - Según el código del clima (`weathercode`) y el momento del día (`is_day`), asigna el icono correspondiente con `getWeatherIcons()` tambien definidio en `helpers.ts`.
     - Muestra la temperatura actual en ºCelsius en el contenedor correspondiente.
     - En caso de error en la petición o en el renderizado, muestra un icono por defecto (día despejado) y deja vacío el texto de la temperatura.
+
+---
 
 Archivo `main.ts`:
 
@@ -432,3 +497,11 @@ Definición de la lógica general:
     - Se inicializa el sistema de puntuación por estrellas con el `starRating.listenToStars()`.
     - Se añade un listener al botón principal (`btn`) que, al hacer clic, llama a `handleNextJoke()` para guardar el chiste actual, registrar su puntuación y mostrar uno nuevo.
     - Finalmente, se ejecuta `showJoke()` al inicio para que la página muestre el primer chiste nada más cargarse.
+
+---
+
+## **Autor**
+
+```text
+Jordi Miravet – Bootcamp S4 – Proyecto de práctica TypeScript y APIs.
+```
