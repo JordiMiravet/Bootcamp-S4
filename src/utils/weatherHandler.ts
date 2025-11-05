@@ -1,7 +1,7 @@
 "use strict"
 
-import { getWeather } from "./api/weather.js";
-import { getWeatherContainers, getWeatherIcons } from "./helpers.js";
+import { getWeather } from "../api/weather.js";
+import { getWeatherContainers, getWeatherIcons } from "../utils/helpers.js";
 
 // --------------------------------------------------
 // Weather Logic

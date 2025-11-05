@@ -57,24 +57,20 @@ index.html
 ```text
 Bootcamp-S4/
 │
-├─ node_modules/
-│
-├─ public/
-│  ├─ images/
-│  │  ├─ background-image_001.jpg
-│  │  └─ weather_icons/
-│  │     ├─ day.svg
-│  │     ├─ night.svg
-│  │     ├─ cloudy-day.svg
-│  │     ├─ cloudy-night.svg
-│  │     ├─ cloudy.svg
-│  │     ├─ rainy-day.svg
-│  │     ├─ rainy-night.svg
-│  │     ├─ snowy-day.svg
-│  │     ├─ snowy-night.svg
-│  │     └─ thunder.svg
-│  ├─ index.html
-│  └─ style.css
+├─ images/
+│  ├─ dom_images
+│  │  └─ background-image_001.jpg
+│  └─ weather_icons/
+│     ├─ day.svg
+│     ├─ night.svg
+│     ├─ cloudy-day.svg
+│     ├─ cloudy-night.svg
+│     ├─ cloudy.svg
+│     ├─ rainy-day.svg
+│     ├─ rainy-night.svg
+│     ├─ snowy-day.svg
+│     ├─ snowy-night.svg
+│     └─ thunder.svg
 │
 ├─ src/
 │  ├─ api/
@@ -83,11 +79,16 @@ Bootcamp-S4/
 │  │  ├─ jokesRandom.ts
 │  │  ├─ typeJoke.ts
 │  │  └─ weather.ts
-│  ├─ DDBB.ts
-│  ├─ helpers.ts
-│  ├─ jokeHandler.ts
-│  ├─ weatherHandler.ts
+|  ├─ DDBB/
+|  |  └─ DDBB.ts
+|  ├─ utils/
+|  |  ├─ helpers.ts
+│  |  ├─ jokeHandler.ts
+│  |  └─ weatherHandler.ts 
 │  └─ main.ts
+│
+├─ styles/
+│  └─ style.css
 │
 ├─ test/
 │  ├─ jokesChuck.test.ts
@@ -95,6 +96,7 @@ Bootcamp-S4/
 │  └─ weather.test.ts
 │
 ├─ .gitignore
+├─ index.html
 ├─ jest.config.js
 ├─ package-lock.json
 ├─ package.json 
@@ -148,8 +150,8 @@ Archivo `JokesChuck.ts`:
 ```typescript
 "use strict"
 
-import { JokeResponse } from "./typeJoke.js";
-import { handleFetchError } from "./handleFetchError.js";
+import { JokeResponse } from "./api/typeJoke.js";
+import { handleFetchError } from "./api/handleFetchError.js";
 
 export const getJokesChuck = async (): Promise<JokeResponse> => {
     const url : string = "https://api.chucknorris.io/jokes/random";
@@ -176,8 +178,8 @@ Archivo `jokesRandom.ts`:
 ```typescript
 "use strict"
 
-import { JokeResponse } from "./typeJoke.js";
-import { handleFetchError } from "./handleFetchError.js";
+import { JokeResponse } from "./api/typeJoke.js";
+import { handleFetchError } from "./api/handleFetchError.js";
 
 export const getJokesRandom = async (): Promise<JokeResponse> => {
     const url: string = 'https://icanhazdadjoke.com/';
@@ -204,7 +206,7 @@ Archivo `weather.ts`
 ```typescript
 "use strict"
 
-import { handleFetchError } from "./handleFetchError.js";
+import { handleFetchError } from "./api/handleFetchError.js";
 
 interface CurrentWeather{
     time: string;
@@ -319,10 +321,10 @@ Archivo `jokeHandler.ts`:
 ```typescript
 "use strict"
 
-import { print , getJokeContainer, getDate } from "./helpers.js";
+import { print , getJokeContainer, getDate } from "./utils/helpers.js";
 import { getJokesRandom } from "./api/jokesRandom.js";
 import { getJokesChuck } from "./api/jokesChuck.js";
-import { reportJokes } from "./DDBB.js";
+import { reportJokes } from "./DDBB/DDBB.js";
 
 // --------------------------------------------------
 // Joke Logic
@@ -430,7 +432,7 @@ Archivo `weatherHandler.ts`:
 "use strict"
 
 import { getWeather } from "./api/weather.js";
-import { getWeatherContainers, getWeatherIcons } from "./helpers.js";
+import { getWeatherContainers, getWeatherIcons } from "./utils/helpers.js";
 
 // --------------------------------------------------
 // Weather Logic
@@ -475,8 +477,8 @@ Archivo `main.ts`:
 // --------------------------------------------------
 // Archivos
 
-import { showWeather } from "./weatherHandler.js";
-import { starRating, showJoke, handleNextJoke } from "./jokeHandler.js"
+import { showWeather } from "./utils/weatherHandler.js";
+import { starRating, showJoke, handleNextJoke } from "./utils/jokeHandler.js"
 
 // --------------------------------------------------
 // Eventos

@@ -2,8 +2,8 @@
 // --------------------------------------------------
 // Archivos
 
-import { showWeather } from "./weatherHandler.js";
-import { starRating, showJoke, handleNextJoke } from "./jokeHandler.js"
+import { showWeather } from "./utils/weatherHandler.js";
+import { starRating, showJoke, handleNextJoke } from "./utils/jokeHandler.js"
 
 // --------------------------------------------------
 // Eventos
