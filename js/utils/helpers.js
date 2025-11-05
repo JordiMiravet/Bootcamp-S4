@@ -16,12 +16,12 @@ export const getWeatherContainers = () => {
 };
 export const getWeatherIcons = (code, is_day) => {
     switch (true) {
-        case code === 0: return is_day ? "../images/weather_icons/day.svg" : "../images/weather_icons/night.svg";
-        case code <= 2: return is_day ? "../images/weather_icons/cloudy-day.svg" : "../images/weather_icons/cloudy-night.svg";
-        case code <= 48: return "../images/weather_icons/cloudy.svg";
-        case code <= 82: return is_day ? "../images/weather_icons/rainy-day.svg" : "../images/weather_icons/rainy-night.svg";
-        case code <= 86: return is_day ? "../images/weather_icons/snowy-day.svg" : "../images/weather_icons/snowy-night.svg";
-        case code <= 99: return "../images/weather_icons/thunder.svg";
-        default: return is_day ? "../images/weather_icons/day.svg" : "../images/weather_icons/night.svg";
+        case code === 0: return is_day ? "./images/weather_icons/day.svg" : "./images/weather_icons/night.svg";
+        case code <= 2: return is_day ? "./images/weather_icons/cloudy-day.svg" : "./images/weather_icons/cloudy-night.svg";
+        case code <= 48: return "./images/weather_icons/cloudy.svg";
+        case code <= 82: return is_day ? "./images/weather_icons/rainy-day.svg" : "./images/weather_icons/rainy-night.svg";
+        case code <= 86: return is_day ? "./images/weather_icons/snowy-day.svg" : "./images/weather_icons/snowy-night.svg";
+        case code <= 99: return "./images/weather_icons/thunder.svg";
+        default: return is_day ? "./images/weather_icons/day.svg" : "./images/weather_icons/night.svg";
     }
 };
