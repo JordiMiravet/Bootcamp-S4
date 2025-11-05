@@ -14,14 +14,17 @@ export const getWeatherContainers = () => {
     const temp = document.getElementById("weatherTemp");
     return { icon, temp };
 };
+
+const path = "/Bootcamp-S4/images/weather_icons/";
+
 export const getWeatherIcons = (code, is_day) => {
     switch (true) {
-        case code === 0: return is_day ? "../images/weather_icons/day.svg" : "../images/weather_icons/night.svg";
-        case code <= 2: return is_day ? "../images/weather_icons/cloudy-day.svg" : "../images/weather_icons/cloudy-night.svg";
-        case code <= 48: return "../images/weather_icons/cloudy.svg";
-        case code <= 82: return is_day ? "../images/weather_icons/rainy-day.svg" : "../images/weather_icons/rainy-night.svg";
-        case code <= 86: return is_day ? "../images/weather_icons/snowy-day.svg" : "../images/weather_icons/snowy-night.svg";
-        case code <= 99: return "../images/weather_icons/thunder.svg";
-        default: return is_day ? "../images/weather_icons/day.svg" : "../images/weather_icons/night.svg";
+        case code === 0: return is_day ? `${path}day.svg` : `${path}night.svg`;
+        case code <= 2: return is_day ? `${path}cloudy-day.svg` : `${path}cloudy-night.svg`;
+        case code <= 48: return `${path}cloudy.svg`;
+        case code <= 82: return is_day ? `${path}rainy-day.svg` : `${path}rainy-night.svg`;
+        case code <= 86: return is_day ? `${path}snowy-day.svg` : `${path}snowy-night.svg`;
+        case code <= 99: return `${path}thunder.svg`;
+        default: return is_day ? `${path}day.svg` : `${path}night.svg`;
     }
 };
