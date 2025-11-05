@@ -1,0 +1,21 @@
+"use strict";
+import { getWeather } from "../api/weather.js";
+import { getWeatherContainers, getWeatherIcons } from "../utils/helpers.js";
+// --------------------------------------------------
+// Weather Logic
+// Mostrar Clima
+export const showWeather = async () => {
+    const { icon, temp } = getWeatherContainers();
+    if (!icon || !temp)
+        return;
+    try {
+        const weather = await getWeather();
+        icon.src = getWeatherIcons(weather.weathercode, weather.is_day);
+        temp.textContent = `${weather.temperature}º C`;
+    }
+    catch (err) {
+        console.error(err);
+        icon.src = getWeatherIcons(0, 1);
+        temp.textContent = "";
+    }
+};
