@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <section class="weather">
-        <img class="weather__icon" id="weatherIcon"></img> 
+    <section class="weather" aria-label="current weather information">
+        <img class="weather__icon" id="weatherIcon" alt="weather icon" role="img">
         <span>|</span>
-        <div class="weather__temp" id="weatherTemp"></div> 
+        <div class="weather__temp" id="weatherTemp" aria-label="current temperature"></div> 
     </section> <!-- weather section -->
 
     <section class="card"> 
         <h2 class="card__text">Ready to laugh?</h2> <!-- card__text -->
-        <div id="resultDiv" class="card__result"></div> <!-- card__result -->
-        <div class="card__score">
+        <div id="resultDiv" class="card__result" aria-label="joke result"></div> <!-- card__result -->
+        <div class="card__score" aria-label="rate this joke">
             <input type="radio" name="rating" id="star1" value="3" hidden>
             <label for="star1" class="star">
                 <svg viewBox="0 0 24 24" width="24" height="24">
@@ -37,7 +37,7 @@
                 </svg>
             </label> <!-- star -->
         </div> <!-- card__score -->
-        <div><button type="button" id="btn" class="card__btn">Next Joke</button></div> <!-- boton -->
+        <div><button type="button" id="btn" class="card__btn" aria-label="Next joke button">Next Joke</button></div> <!-- boton -->
     </section> <!-- card section -->
     
     <script type="module" src="./dist/main.js"></script>
