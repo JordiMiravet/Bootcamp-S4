@@ -70,7 +70,7 @@ h2 {
 /* Card */
 .card {
   margin: 0 auto;
-  padding: 5rem 5rem;
+  padding: 3.5rem;
 
   height: 80%;
   width: 80%;
@@ -91,7 +91,6 @@ h2 {
 
 .card__text {
   padding: 1rem 0;
-  text-align: left;
   color: var(--color-late-foam);
 }
 
@@ -141,7 +140,6 @@ h2 {
 /* Button */
 
 .card__btn {
-  
   padding: 1.25rem 3rem;
   border: none;
   border-radius: 2rem;
@@ -149,10 +147,22 @@ h2 {
   color: var(--color-late-foam);
   font-weight: 600;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 } 
 .card__btn:hover {
   background-color: var(--color-ceramic-blue);
   box-shadow: 0 0 0.5rem var(--color-Espresso-brown);
 }
 
+@media (min-width: 768px){
+  .card{
+    padding: 5rem;
+  }
+  .card__text{
+    text-align: left;
+  }
+  .card__btn{
+    width: auto;
+  }
+}
 
