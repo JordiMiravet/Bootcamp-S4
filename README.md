@@ -503,6 +503,12 @@ Definición de la lógica general:
 
 ---
 
+## GitHub Pages
+
+[Abrir](https://jordimiravet.github.io/Bootcamp-S4/)
+
+---
+
 ## **Autor**
 
 ```text
