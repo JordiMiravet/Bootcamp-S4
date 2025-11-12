@@ -46,10 +46,6 @@ export const showJoke = async (): Promise<void> => {
             ? await getJokesRandom()
             : await getJokesChuck()
 
-        console.clear();
-        console.log(reportJokes[reportJokes.length -1]);
-        console.log(reportJokes)
-
         print(result, joke.text);
     } catch (err){
         console.error(err)
