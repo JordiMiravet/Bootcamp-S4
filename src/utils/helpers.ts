@@ -1,5 +1,3 @@
-"use strict"
-
 export const print = (elementHTML: HTMLElement, result: string): void => { elementHTML.innerHTML = result }
 
 // --------------------------------------------------
@@ -25,19 +23,48 @@ export const getWeatherContainers = (): WeatherContainers => {
     return { icon, temp };
 }
 
-export const getWeatherIcons = (code: number, is_day: number): string => {
+export const getWeatherIcons = (code: number, is_day: number): { src: string, alt: string } => {
     
-    const path = "./images/weather_icons/"
+    const path = "./images/weather_icons/";
 
-    switch(true){
-        case code === 0 : return is_day ? `${path}day.svg` : `${path}night.svg`;
-        case code <= 2 : return is_day ? `${path}cloudy-day.svg` : `${path}cloudy-night.svg`;
-        case code <= 48 : return `${path}cloudy.svg`;
-        case code <= 82 : return is_day ? `${path}rainy-day.svg` : `${path}rainy-night.svg`;
-        case code <= 86 : return is_day ? `${path}snowy-day.svg` : `${path}snowy-night.svg`;
-        case code <= 99 : return `${path}thunder.svg`;  
-        default: return is_day ? `${path}day.svg` : `${path}night.svg`;
-    }  
+    switch (true) {
+        case code === 0:
+            return { 
+                src: is_day ? `${path}day.svg` : `${path}night.svg`,
+                alt: is_day ? "Clear sky during the day" : "Clear sky at night"
+            };
+        case code <= 2:
+            return { 
+                src: is_day ? `${path}cloudy-day.svg` : `${path}cloudy-night.svg`,
+                alt: is_day ? "Partial cloudy day" : "Partial cloudy night"
+            };
+        case code <= 48:
+            return { 
+                src: `${path}cloudy.svg`,
+                alt: "Cloudy sky"
+            };
+        case code <= 82:
+            return { 
+                src: is_day ? `${path}rainy-day.svg` : `${path}rainy-night.svg`,
+                alt: is_day ? "Rainy day" : "Rainy night"
+            };
+        case code <= 86:
+            return { 
+                src: is_day ? `${path}snowy-day.svg` : `${path}snowy-night.svg`,
+                alt: is_day ? "Snowy day" : "Snowy night"
+            };
+        case code <= 99:
+            return { 
+                src: `${path}thunder.svg`,
+                alt: "Thunderstorm day"
+            };
+        default:
+            return { 
+                src: is_day ? `${path}day.svg` : `${path}night.svg`,
+                alt: is_day ? "Default clear sky during the day" : "Default clear sky at night"
+            };
+    }
 };
+
 
 

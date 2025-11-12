@@ -32,18 +32,28 @@ body{
   padding: 0;
   font-family: var(--typo-family);
   background-color: var(--color-white);
-  background: url('../images/dom_images/background-image_001.jpg') center/cover no-repeat fixed;
+  background: url('../images/dom_images/background-image_001.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   height: 100vh;
   overflow: hidden;
 }
 
-h2 {
-  font-size: 2.25rem;
+h1 {
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
 }
 
 /** DOM **/
 
+main {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 6fr;
+}
+
 /* Weather */
+
 .weather {
   display: flex;
   flex-direction: row;
@@ -52,28 +62,29 @@ h2 {
   gap: 0.5rem;
   margin-bottom: 1rem;
   padding: 0;
-  height: 10vh;
 }
 .weather span {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   color: var(--color-white);
 }
 .weather__icon {
   width: 6rem;
 }
 .weather__temp {
-  font-size: 1.75rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
   font-weight: 700;
   color: var(--color-white);
 }
 
 /* Card */
+
 .card {
   margin: 0 auto;
   padding: 3.5rem;
 
-  height: 80%;
-  width: 80%;
+  width: calc(80vw - 7rem);
+  height: calc(80vh - 7rem);
+  padding: 3.5rem;
   border: none;
   border-radius: 2rem;
 
@@ -96,7 +107,7 @@ h2 {
 
 .card__result {
   color: var(--color-late-foam);
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 2vw, 2.25rem);
   font-weight: 500;
   line-height: 2.25rem;
   letter-spacing: .05rem;

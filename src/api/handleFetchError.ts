@@ -1,5 +1,3 @@
-"use strict"
-
 export const handleFetchError = (res: Response) => {
     if (!res.ok) {
         if (res.status >= 400 && res.status < 500) throw new Error(`Client Error ${res.status}`);

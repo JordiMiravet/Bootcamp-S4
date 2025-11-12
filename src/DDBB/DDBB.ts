@@ -1,5 +1,3 @@
-"use strict"
-
 export type ReportJoke = {
     joke: string,
     score: number,

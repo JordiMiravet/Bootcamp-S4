@@ -1,5 +1,3 @@
-"use strict"
-
 import { JokeResponse } from "./typeJoke.js";
 import { handleFetchError } from "./handleFetchError.js";
 

@@ -1,5 +1,3 @@
-"use strict"
-
 import { print , getJokeContainer, getDate } from "../utils/helpers.js";
 import { getJokesRandom } from "../api/jokesRandom.js";
 import { getJokesChuck } from "../api/jokesChuck.js";

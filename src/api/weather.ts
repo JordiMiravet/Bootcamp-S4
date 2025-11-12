@@ -1,5 +1,3 @@
-"use strict"
-
 import { handleFetchError } from "./handleFetchError.js";
 interface CurrentWeather{
     time: string;

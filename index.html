@@ -8,37 +8,41 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <section class="weather" aria-label="current weather information">
-        <img class="weather__icon" id="weatherIcon" alt="weather icon" role="img">
-        <span>|</span>
-        <div class="weather__temp" id="weatherTemp" aria-label="current temperature"></div> 
-    </section> <!-- weather section -->
+    <main>
+        
+        <header class="weather" aria-label="current weather information">
+            <img class="weather__icon" id="weatherIcon" alt="weather icon" role="img">
+            <span>|</span>
+            <div class="weather__temp" id="weatherTemp" aria-label="current temperature"></div> 
+        </header> <!-- weather header -->
 
-    <section class="card"> 
-        <h2 class="card__text">Ready to laugh?</h2> <!-- card__text -->
-        <div id="resultDiv" class="card__result" aria-label="joke result"></div> <!-- card__result -->
-        <div class="card__score" aria-label="rate this joke">
-            <input type="radio" name="rating" id="star1" value="3" hidden>
-            <label for="star1" class="star">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
-                </svg>
-            </label> <!-- star -->
-            <input type="radio" name="rating" id="star2" value="2" hidden>
-            <label for="star2" class="star">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
-                </svg>
-            </label> <!-- star -->
-            <input type="radio" name="rating" id="star3" value="1" hidden>
-            <label for="star3" class="star">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
-                </svg>
-            </label> <!-- star -->
-        </div> <!-- card__score -->
-        <div><button type="button" id="btn" class="card__btn" aria-label="Next joke button">Next Joke</button></div> <!-- boton -->
-    </section> <!-- card section -->
+        <section class="card"> 
+            <h1 class="card__text">Ready to laugh?</h1> <!-- card__text -->
+            <div id="resultDiv" class="card__result" aria-label="joke result"></div> <!-- card__result -->
+            <div class="card__score" aria-label="rate this joke">
+                <input type="radio" name="rating" id="star1" value="3" hidden>
+                <label for="star1" class="star">
+                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                        <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
+                    </svg>
+                </label> <!-- star -->
+                <input type="radio" name="rating" id="star2" value="2" hidden>
+                <label for="star2" class="star">
+                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                        <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
+                    </svg>
+                </label> <!-- star -->
+                <input type="radio" name="rating" id="star3" value="1" hidden>
+                <label for="star3" class="star">
+                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                        <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z"/>
+                    </svg>
+                </label> <!-- star -->
+            </div> <!-- card__score -->
+            <div><button type="button" id="btn" class="card__btn" aria-label="Next joke button">Next Joke</button></div> <!-- boton -->
+        </section> <!-- card section -->
+    </main>
+    
     
     <script type="module" src="./dist/main.js"></script>
 </body>

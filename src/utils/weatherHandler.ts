@@ -1,5 +1,3 @@
-"use strict"
-
 import { getWeather } from "../api/weather.js";
 import { getWeatherContainers, getWeatherIcons } from "../utils/helpers.js";
 
@@ -13,13 +11,20 @@ export const showWeather = async (): Promise<void> => {
 
     try {
         const weather = await getWeather();
-        
-        (icon as HTMLImageElement).src = getWeatherIcons(weather.weathercode, weather.is_day);
+
+        const weatherIcon = getWeatherIcons(weather.weathercode, weather.is_day);
+        icon.src = weatherIcon.src;
+        icon.alt = weatherIcon.alt;
+
         temp.textContent = `${weather.temperature}º C`;
+
     } catch (err) {
         console.error(err);
 
-        (icon as HTMLImageElement).src = getWeatherIcons(0, 1);
+        const defaultIcon = getWeatherIcons(0, 1);
+        icon.src = defaultIcon.src;
+        icon.alt = defaultIcon.alt;
+
         temp.textContent = "";
     }
 };
